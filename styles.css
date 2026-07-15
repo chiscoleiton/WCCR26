@@ -228,7 +228,7 @@ body:not(.block-editor-page) .wordcamp-schedule .wordcamp-schedule__column-heade
 	color: #000000;
 }
 
-* ============================================================
+/* ============================================================
    WordCamp Costa Rica 2026 —    Ponentes
 ============================================================ */
 /* Separación del grid de tarjetas (3 columnas ya existen en tu HTML) */
@@ -404,8 +404,8 @@ body:not(.block-editor-page) .wordcamp-schedule .wordcamp-schedule__column-heade
 	}
 	
 	.tix_tickets_table td.tix-column-price,
-													.tix_tickets_table td.tix-column-remaining,
-													.tix_tickets_table td.tix-column-quantity {
+	.tix_tickets_table td.tix-column-remaining,
+	.tix_tickets_table td.tix-column-quantity {
 		display: flex;
 		align-items: center;
 		gap: .4em;
@@ -417,7 +417,7 @@ body:not(.block-editor-page) .wordcamp-schedule .wordcamp-schedule__column-heade
 	}
 }
 
-* ============================================================
+/* ============================================================
    Card Asistentes 
 ============================================================ */
 
