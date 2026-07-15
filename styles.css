@@ -43,6 +43,14 @@
 .wccr-hero {
     text-align: center;
 }
+
+/* Centrado vertical del contenido dentro del hero de 800px */
+.wccr-hero {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .wccr-hero .wp-block-columns {
     justify-content: center;
 }
@@ -63,6 +71,14 @@
     margin: 0 auto 32px !important;
     width: fit-content;
 }
+
+/* Efecto glass en el badge */
+.wccr-badge {
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari */
+}
+
 .wccr-badge svg {
     width: 16px;
     height: 16px;
