@@ -26,6 +26,9 @@
 	display: inline-block;
 	text-decoration: none !important;
 }
+.tickets-btn .wp-block-navigation-item__content {
+    -webkit-tap-highlight-color: transparent;
+}
 
 /* Hover: leve feedback, sin romper el 3D */
 .tickets-btn .wp-block-navigation-item__content:hover {
