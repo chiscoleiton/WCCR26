@@ -1,0 +1,558 @@
+/*.tickets-btn {
+	background: var(--wp--preset--color--white) !important;
+	color: var(--wp--preset--color--accent-4) !important;
+	padding-inline: 1rem;
+	padding-block: .25rem;
+	border-radius: .2rem;
+} */
+/* ==========================================================
+   Botón "ENTRADAS" — efecto 3D presionado
+   Target: .tickets-btn (li del wp-block-navigation-item)
+   Ajusta los colores hex a la marca exacta si no calzan
+   ========================================================== */
+.tickets-btn .wp-block-navigation-item__content {
+	background-color: #d81f26;
+/* rojo del botón */
+	color: #ffffff !important;
+	border-radius: 999px;
+/* forma píldora, como el diseño */
+	padding: 14px 34px;
+	font-weight: 700;
+	line-height: 1;
+	box-shadow: 3px 6px 0 #8c1015;
+/* "grosor" del botón — el borde oscuro de abajo */
+	transform: translateY(0);
+	transition: transform .08s ease, box-shadow .08s ease, background-color .15s ease;
+	display: inline-block;
+	text-decoration: none !important;
+}
+
+/* Hover: leve feedback, sin romper el 3D */
+.tickets-btn .wp-block-navigation-item__content:hover {
+	background-color: #e63238;
+}
+
+/* Presionado: se hunde 6px (mismo valor que el box-shadow) y la sombra colapsa a 0 */
+.tickets-btn .wp-block-navigation-item__content:active {
+	transform: translateY(6px);
+	box-shadow: 0 0 0 #8c1015;
+}
+
+/* Accesibilidad: mismo efecto al navegar con teclado */
+.tickets-btn .wp-block-navigation-item__content:focus-visible {
+	outline: 2px solid #ffffff;
+	outline-offset: 2px;
+}
+
+:root :where(.home .is-layout-constrained) > * {
+	margin-block-start: 0 !important;
+}
+
+:root :where(.wp-block-navigation a:where(:not(.wp-element-button)):hover) {
+	text-decoration: none !important;
+}
+
+* ============================================================
+   WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) ============================================================ */
+
+/* ------------------------------------------------------------
+   1. LAYOUT DEL ENCABEZADO — 2 columnas con CSS Grid
+   ------------------------------------------------------------ */
+
+
+
+.single-wcb_sponsor main > .wp-block-group.has-global-padding:first-child {
+	display: grid;
+	grid-template-columns: auto 1fr minmax(0, 250px);
+	grid-template-areas: "categoria nivel  logo" "titulo    titulo logo";
+	column-gap: 1rem;
+	row-gap: .75rem;
+	align-items: center;
+}
+
+/* h5 de categoría (si tuviera texto) */
+.single-wcb_sponsor .categorysponsor {
+	grid-area: categoria;
+	margin: 0;
+}
+
+/* FIX: si el h5 está vacío (como en tu captura), se oculta
+   y su columna "auto" colapsa a 0 — el nivel arranca pegado
+   a la izquierda */
+.single-wcb_sponsor .categorysponsor:empty {
+	display: none;
+}
+
+.single-wcb_sponsor .wp-block-post-featured-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* Responsive: apilado en una columna */
+@media (max-width: 781px) {
+	.single-wcb_sponsor main > .wp-block-group.has-global-padding:first-child {
+		grid-template-columns: 1fr;
+		grid-template-areas: logo categoria nivel titulo;
+	}
+	
+	.single-wcb_sponsor .wp-block-post-featured-image {
+		justify-self: start;
+	}
+}
+
+/* ------------------------------------------------------------
+   2. ESTILO BASE DEL BADGE
+   Se aplica al enlace del término (donde está el texto real)
+   y también al h5 por si en algún patrocinador sí trae texto.
+   ------------------------------------------------------------ */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a,
+.single-wcb_sponsor .categorysponsor:not(:empty) {
+	display: inline-block;
+	padding: .3em .9em;
+	border-radius: 4px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   3. COLORES POR NIVEL DE PATROCINIO
+   El selector principal es el enlace del término: su href
+   siempre contiene el slug, sin depender de clases extra.
+   El segundo selector (con :has) cubre el h5 si tiene texto.
+   ------------------------------------------------------------ */
+/* Oro Precolombino */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="oro-precolombino"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="oro-precolombino"]) .categorysponsor:not(:empty) {
+	background-color: #EFBA2D;
+	color: #000000;
+}
+
+/* Esferas de Plata */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="plata-esferas"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="plata-esferas"]) .categorysponsor:not(:empty) {
+	background-color: #82A4B8;
+	color: #000000;
+}
+
+/* Teatro Bronce */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="bronce-teatro"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="bronce-teatro"]) .categorysponsor:not(:empty) {
+	background-color: #D48D38;
+	color: #000000;
+}
+
+/* Pyme Guaria */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="pyme-guaria"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="pyme-guaria"]) .categorysponsor:not(:empty) {
+	background-color: #7339C5;
+	color: #ffffff;
+}
+
+/* Morpho (Freelancer) */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="freelancer-morpho"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="freelancer-morpho"]) .categorysponsor:not(:empty) {
+	background-color: #1800AD;
+	color: #ffffff;
+}
+
+/* Venue — nota: uso "/venue" con barra para reducir falsos
+   positivos, porque "venue" es una cadena muy corta que podría
+   aparecer en otras URLs */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="/venue"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="/venue"]) .categorysponsor:not(:empty) {
+	background-color: #F01A2B;
+	color: #ffffff;
+}
+
+/* Crestones (In-kind) */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="crestones-inkind"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="crestones-inkind"]) .categorysponsor:not(:empty) {
+	background-color: #05BF62;
+	color: #000000;
+}
+
+/* Media Partner — ojo: negro sobre #053D78 tiene muy poco
+   contraste; revisá si el texto debería ser #ffffff */
+.single-wcb_sponsor .taxonomy-wcb_sponsor_level a[href*="media-partner"],
+.single-wcb_sponsor .wp-block-group:has(a[href*="media-partner"]) .categorysponsor:not(:empty) {
+	background-color: #053D78;
+	color: #000000;
+}
+
+/* === Encabezados de la tabla (Time, Auditorio, Salas) === */
+body:not(.block-editor-page) .wordcamp-schedule .wordcamp-schedule__column-header {
+	background-color: #053D78 !important;
+	color: #ffffff !important;
+}
+
+/* Encabezados de hora (2:00 pm CST, etc.) */
+.wordcamp-schedule .wordcamp-schedule__time-slot-header {
+	background-color: #053D78;
+	color: #ffffff;
+}
+
+/* === Sesiones que ocupan todas las salas (compartidas): texto centrado === */
+.wordcamp-schedule .wordcamp-schedule__session.is-spanning-all-tracks {
+	text-align: center;
+}
+
+.wordcamp-schedule .wordcamp-schedule__session.is-spanning-all-tracks .wordcamp-schedule__session-title {
+	justify-content: center;
+}
+
+/* === Café / Almuerzo: fondo celeste, texto negro === */
+.wordcamp-schedule .wordcamp-schedule__session.has-slug-cafe,
+.wordcamp-schedule .wordcamp-schedule__session.has-slug-almuerzo {
+	background-color: #82A4B8;
+	color: #000000;
+}
+
+.wordcamp-schedule .wordcamp-schedule__session.has-slug-cafe *,
+.wordcamp-schedule .wordcamp-schedule__session.has-slug-almuerzo * {
+	color: #000000;
+}
+
+/* === Columna de hora: fondo celeste, texto negro === */
+/* Encabezado "Time" de la columna de hora */
+body:not(.block-editor-page) .wordcamp-schedule .wordcamp-schedule__column-header.is-column-time {
+	background-color: #82A4B8 !important;
+	color: #000000 !important;
+}
+
+/* Celdas de hora (2:00 pm CST, 3:00 pm CST, etc.) */
+.wordcamp-schedule .wordcamp-schedule__time-slot-header {
+	background-color: #82A4B8;
+	color: #000000;
+}
+
+* ============================================================
+   WordCamp Costa Rica 2026 —    Ponentes
+============================================================ */
+/* Separación del grid de tarjetas (3 columnas ya existen en tu HTML) */
+.page-slug-ponentes .wp-block-post-template.columns-3 {
+	gap: 2.5rem 1.5rem;
+/* aproximado, ajusta a tu gusto visualmente */
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker {
+	position: relative;
+	width: 100%;
+	max-width: 368px;
+	aspect-ratio: 368 / 475;
+	margin: 0 auto;
+	background-image: url('https://costarica.wordcamp.org/2026/files/2026/07/PonCard.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	padding: 56px 24px 24px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar {
+	margin: 0 auto 16px;
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar img {
+	border-radius: 50%;
+	border: 3px #AE0013 solid;
+	object-fit: cover;
+}
+
+/* Nombre del ponente */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-post-title {
+	font-size: 1.4rem;
+	font-weight: 800;
+	color: #3B4CCB;
+	margin: 4px 0;
+	line-height: 1.2;
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-post-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-read-more {
+	display: block;
+	margin-top: auto;
+	padding-top: 8px;
+	font-size: .85rem;
+	color: #6b6b6b;
+}
+
+/* ============================================================
+   WordCamp Costa Rica 2026 — Venta de entradas
+============================================================ */
+.tix_tickets_table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.tix_tickets_table .tix-column-description {
+	width: 60%;
+}
+
+.tix_tickets_table .tix-column-price {
+	width: 15%;
+}
+
+.tix_tickets_table .tix-column-remaining {
+	width: 10%;
+}
+
+.tix_tickets_table .tix-column-quantity {
+	width: 15%;
+}
+
+.tix_tickets_table th.tix-column-description {
+	text-align: left !important;
+	vertical-align: top;
+}
+
+.tix_tickets_table thead th.tix-column-description {
+	visibility: hidden;
+}
+
+.tix_tickets_table .tix-ticket-title {
+	display: block;
+	text-align: left;
+	font-weight: bold;
+	color: #AE0013;
+}
+
+.tix_tickets_table .tix-ticket-excerpt {
+	display: block;
+	text-align: left;
+	font-size: .9em;
+	line-height: 1.4;
+}
+
+.tix_tickets_table th.tix-column-price,
+.tix_tickets_table td.tix-column-price,
+.tix_tickets_table th.tix-column-remaining,
+.tix_tickets_table td.tix-column-remaining,
+.tix_tickets_table th.tix-column-quantity,
+.tix_tickets_table td.tix-column-quantity {
+	text-align: center !important;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.tix_tickets_table td.tix-column-quantity select {
+	width: auto;
+	min-width: 60px;
+}
+
+/* ============================================================
+   Responsive: apilar la tabla como tarjetas en móvil
+   Breakpoint 600px — ajústalo si tu tema usa otro
+============================================================ */
+@media (max-width: 600px) {
+	.tix_tickets_table,
+													.tix_tickets_table thead,
+													.tix_tickets_table tbody,
+													.tix_tickets_table th,
+													.tix_tickets_table td,
+													.tix_tickets_table tr {
+		display: block;
+		width: 100% !important;
+	}
+	
+	/* Oculta el encabezado original: ya no aplica en formato de tarjeta */
+	.tix_tickets_table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.tix_tickets_table tr {
+		margin-bottom: 1em;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		padding: .75em;
+	}
+	
+	.tix_tickets_table td {
+		text-align: left !important;
+		white-space: normal;
+		padding: .4em 0;
+		border: none;
+	}
+	
+	/* Etiquetas antes de cada valor, ya que no hay encabezados visibles */
+	.tix_tickets_table td.tix-column-price::before {
+		content: "Precio: ";
+		font-weight: bold;
+	}
+	
+	.tix_tickets_table td.tix-column-remaining::before {
+		content: "Disponibles: ";
+		font-weight: bold;
+	}
+	
+	.tix_tickets_table td.tix-column-quantity::before {
+		content: "Cantidad: ";
+		font-weight: bold;
+	}
+	
+	.tix_tickets_table td.tix-column-price,
+													.tix_tickets_table td.tix-column-remaining,
+													.tix_tickets_table td.tix-column-quantity {
+		display: flex;
+		align-items: center;
+		gap: .4em;
+	}
+	
+	.tix_tickets_table td.tix-column-quantity select {
+		width: 100%;
+		max-width: 120px;
+	}
+}
+
+* ============================================================
+   Card Asistentes 
+============================================================ */
+
+/* ============================================================
+   Mejora visual para la sección Asistentes de WordCamp Costa Rica 2026
+   Selectores basados en el HTML del plugin CampTix que se ve en tu
+   captura de DevTools: #tix-attendees > ul.tix-attendee-list > li
+
+   NOTA SOBRE COLORES (léelo antes de usar):
+   Solo pude confirmar 2 colores reales del sitio, tomados directamente
+   del panel de DevTools en tu captura:
+     - Azul del título Asistentes (h1, inline style): #3759b3
+     - Fondo del body (Computed): #d3f0ff
+   No pude acceder al CSS completo del sitio (el dominio bloquea
+   peticiones automatizadas fuera de tu navegador), así que NO tengo
+   confirmado el color exacto del header oscuro que se ve en tu captura.
+   Lo dejé fuera del código. Si quieres que el borde/hover use ese tono
+   oscuro también, dame el hex exacto (puedes verlo en DevTools sobre
+   el header) y lo agrego.
+   Todo lo demás (radios, sombras, espaciados) son decisiones de diseño
+   mías, no valores extraídos del sitio.
+   ============================================================ */
+
+#tix-attendees {
+	padding: 20px 0;
+}
+
+#tix-attendees ul.tix-attendee-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+}
+
+#tix-attendees ul.tix-attendee-list li {
+	width: 100%;
+	box-sizing: border-box;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-image: url('https://costarica.wordcamp.org/2026/files/2026/07/asistantcard.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 12px;
+	padding: 24px 16px;
+	box-shadow: 0 2px 8px rgba(55, 89, 179, 0.12);
+	border: 1px solid #e3eefc;
+	transition: transform .15s ease, box-shadow .15s ease;
+}
+
+#tix-attendees ul.tix-attendee-list li:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(55, 89, 179, 0.2);
+}
+
+/* Avatar */
+#tix-attendees ul.tix-attendee-list li img.avatar {
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 0 14px;
+	border: 3px solid #ffffff;
+}
+
+/* Nombre: quitamos el margin-left:70px que viene del CSS del plugin
+   (era para el layout viejo en fila con foto a la izquierda) */
+#tix-attendees .tix-field.tix-attendee-name {
+	margin: 0 !important;
+	display: flex !important;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	font-size: 15px;
+	line-height: 1.3;
+}
+
+#tix-attendees .tix-attendee-name .tix-first,
+#tix-attendees .tix-attendee-name .tix-last {
+	font-weight: 600;
+	color: #ffffff;
+}
+
+/* Ligero acento de color de marca en el apellido, opcional */
+#tix-attendees .tix-attendee-name .tix-last {
+	color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE ============================================================ */
+/* Tablet: 2 columnas */
+@media (max-width: 900px) {
+	#tix-attendees ul.tix-attendee-list {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 18px;
+	}
+	
+	#tix-attendees ul.tix-attendee-list li {
+		padding: 20px 14px;
+	}
+	
+	#tix-attendees ul.tix-attendee-list li img.avatar {
+		width: 84px;
+		height: 84px;
+	}
+}
+
+/* Móvil: 1 columna */
+@media (max-width: 560px) {
+	#tix-attendees {
+		padding: 12px 0;
+	}
+	
+	#tix-attendees ul.tix-attendee-list {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+	
+	#tix-attendees ul.tix-attendee-list li {
+		padding: 18px 12px;
+		border-radius: 10px;
+	}
+	
+	#tix-attendees ul.tix-attendee-list li img.avatar {
+		width: 76px;
+		height: 76px;
+		border-width: 2px;
+		margin-bottom: 10px;
+	}
+	
+	#tix-attendees .tix-field.tix-attendee-name {
+		font-size: 14px;
+	}
+}
