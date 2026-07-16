@@ -109,6 +109,8 @@
     color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
 }
 
+
+/* ----------------------------------------------------------------------------------------- Ribbon -----*/
 /* ==========================================================
    BOTONES — mismo sistema de "presión" del botón Entradas del navbar:
    hover = medio hundido, active = hundido del todo.
@@ -156,6 +158,55 @@
 .wccr-btn-outline .wp-block-button__link:active {
     transform: translate(5px, 5px);
     box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================
+   CINTILLO ROJO ANIMADO — mismo mecanismo que el ribbon verde de
+   events.wordpress.org/campusconnect (sacado en vivo de su CSS).
+   Va con el HTML de 5-ribbon-markup.html en un bloque HTML personalizado.
+   ========================================================== */
+.wccr-ribbon {
+    background: #d81f26;
+    border-top: 2px solid #8c1015;
+    border-bottom: 2px solid #8c1015;
+    overflow: hidden;
+    padding: 13px 0;
+}
+
+.wccr-ribbon__track {
+    display: flex;
+    gap: 44px;
+    width: max-content;
+    animation: wccr-scrollX 24s linear infinite;
+}
+
+.wccr-ribbon__item {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 44px;
+}
+
+/* separador ✦, igual que el sitio de referencia */
+.wccr-ribbon__item::after {
+    content: "✦";
+    color: #ffd43b;
+}
+
+@keyframes wccr-scrollX {
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* pausa al pasar el mouse — opcional, quítalo si no lo quieres */
+.wccr-ribbon:hover .wccr-ribbon__track {
+    animation-play-state: paused;
 }
 
 
