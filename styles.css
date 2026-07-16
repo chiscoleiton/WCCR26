@@ -108,6 +108,16 @@
 .wccr-subtitle strong {
     color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
 }
+.wccr-hero-meta {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-top: 8px !important;
+}
+.wccr-hero-meta strong {
+    color: #ffffff;
+    font-weight: 700;
+}
 
 /* ==========================================================
    BOTONES — mismo sistema de "presión" del botón Entradas del navbar:
