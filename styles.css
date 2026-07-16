@@ -223,6 +223,56 @@
     animation-play-state: paused;
 }
 
+/* ==========================================================
+   BANNER DE DATOS FLOTANTE (Fechas / Lugar / Formato + CTA)
+   Va justo después del Group del hero, como hermano (no adentro).
+   El margin-top negativo lo monta encima del hero sin dejar hueco
+   en el flujo del documento (a diferencia de usar transform).
+   ========================================================== */
+.wccr-datos-banner {
+    background-color: #ffffff;
+    border-radius: 18px;
+    max-width: 1140px;
+    margin: -58px auto 0;
+    position: relative;
+    z-index: 3;
+    padding: 36px 40px;
+    box-shadow: 0 24px 48px rgba(0, 20, 60, 0.18);
+}
+ 
+.wccr-datos-grid {
+    justify-content: center !important;
+    gap: 36px !important;
+    text-align: center;
+}
+ 
+.wccr-dato-label {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #8592a8 !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+}
+ 
+.wccr-dato-valor {
+    font-weight: 700 !important;
+    font-size: 1.02rem !important;
+    color: #002b7f !important;
+    line-height: 1.4;
+    margin: 0 !important;
+}
+ 
+@media (max-width: 760px) {
+    .wccr-datos-banner {
+        padding: 26px 22px;
+        margin-top: -40px;
+    }
+    .wccr-datos-grid {
+        gap: 20px 28px !important;
+    }
+}
+
 
 
 /* ============================================================
