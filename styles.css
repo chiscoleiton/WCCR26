@@ -168,7 +168,6 @@
     box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.4);
 }
 
-/* ----------------------------------------------------------------------------------------- Ribbon -----*/
 /* ==========================================================
    CINTILLO ROJO ANIMADO — mismo mecanismo que el ribbon verde de
    events.wordpress.org/campusconnect (sacado en vivo de su CSS).
@@ -272,6 +271,80 @@
         gap: 20px 28px !important;
     }
 }
+
+
+/* ==========================================================
+   PRUEBA SOCIAL — cifras + galería + cintillo de logos
+   ========================================================== */
+ 
+/* --- Cifras --- */
+.wccr-cifra-row {
+    justify-content: center !important;
+    gap: 56px !important;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.wccr-cifra-num {
+    font-weight: 800 !important;
+    font-size: 2.1rem !important;
+    color: #ce1126 !important;
+    margin: 0 !important;
+}
+.wccr-cifra-lbl {
+    font-size: 0.82rem !important;
+    color: #5a6a85 !important;
+    font-weight: 600 !important;
+    margin: 2px 0 0 !important;
+}
+ 
+/* --- Galería --- */
+.wccr-galeria-grid {
+    gap: 14px !important;
+}
+.wccr-galeria-item {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.wccr-galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+/* --- Cintillo azul de logos (va con 7-sponsor-ribbon-markup.html) --- */
+.wccr-sponsor-ribbon {
+    background-color: #002b7f;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 44px;
+    padding: 22px 0;
+}
+.wccr-sponsor-ribbon__track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: max-content;
+    animation: wccr-scrollLogos 26s linear infinite;
+}
+.wccr-sponsor-ribbon:hover .wccr-sponsor-ribbon__track {
+    animation-play-state: paused;
+}
+.wccr-sponsor-ribbon__track img {
+    height: 30px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+}
+@keyframes wccr-scrollLogos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wccr-sponsor-ribbon__track { animation: none; overflow-x: auto; }
+}
+ 
 
 
 
