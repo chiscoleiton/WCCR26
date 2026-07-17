@@ -860,6 +860,94 @@
     color: #64c4f4 !important;
     margin: 0 !important;
 }
+
+
+/* ==========================================================
+   ENTRADAS — tarjetas de precio
+   ========================================================== */
+.wccr-entradas-section {
+    text-align: center;
+    padding: 72px 24px;
+}
+.wccr-entradas-title { color: #002b7f; font-weight: 800; }
+.wccr-entradas-lead {
+    font-size: 1.08rem;
+    max-width: 640px;
+    margin: 0 auto 8px;
+    color: #3a4a63;
+}
+ 
+.wccr-precios-grid {
+    display: grid !important;
+    gap: 18px;
+    margin-top: 36px !important;
+}
+.wccr-precios-grid-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 640px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+@media (max-width: 560px) {
+    .wccr-precios-grid-2 { grid-template-columns: 1fr !important; }
+}
+ 
+.wccr-precio-card {
+    background-color: #ffffff;
+    border: 1px solid #e1e8f2;
+    border-radius: 16px;
+    padding: 28px 22px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.wccr-precio-destacado {
+    border: 2px solid #ce1126;
+    position: relative;
+    box-shadow: 0 16px 32px rgba(206, 17, 38, 0.14);
+}
+ 
+.wccr-precio-tag-pop {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ce1126;
+    color: #ffffff !important;
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin: 0 !important;
+    width: fit-content;
+}
+ 
+.wccr-precio-nombre {
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: #053d78 !important;
+    margin: 0 !important;
+}
+.wccr-precio-monto {
+    font-weight: 800 !important;
+    font-size: 2.1rem !important;
+    color: #002b7f !important;
+    margin: 10px 0 4px !important;
+}
+.wccr-precio-desc {
+    font-size: 0.82rem !important;
+    color: #5a6a85 !important;
+    margin-bottom: 18px !important;
+    flex-grow: 1;
+}
+ 
+.wccr-precio-card .wp-block-button,
+.wccr-precio-card .wp-block-button__link {
+    width: 100%;
+    font-size: 0.9rem !important;
+}
  
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
