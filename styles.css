@@ -646,6 +646,107 @@
     margin: 0 !important;
 }
 
+/* ==========================================================
+   PROGRAMA — 2 tarjetas de día
+   ========================================================== */
+.wccr-programa-section {
+    background-color: #d3f0ff;
+    text-align: center;
+    padding: 72px 24px;
+}
+.wccr-programa-title { color: #002b7f; font-weight: 800; }
+.wccr-programa-lead {
+    font-size: 1.08rem;
+    max-width: 640px;
+    margin: 0 auto 8px;
+    color: #3a4a63;
+}
+ 
+.wccr-programa-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 36px !important;
+    text-align: left;
+}
+@media (max-width: 700px) {
+    .wccr-programa-grid { grid-template-columns: 1fr; }
+}
+ 
+.wccr-dia-card {
+    border-radius: 16px;
+    padding: 32px !important;
+}
+.wccr-dia1 {
+    background-color: #ffffff;
+    border: 1px solid #e1e8f2;
+}
+.wccr-dia2 {
+    background-color: #002b7f;
+}
+.wccr-dia2 .wccr-dia-fecha { color: #ffffff !important; }
+ 
+.wccr-dia-tag {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ce1126 !important;
+    margin: 0 !important;
+}
+.wccr-dia2 .wccr-dia-tag { color: #64c4f4 !important; }
+ 
+.wccr-dia-fecha {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    color: #002b7f !important;
+    margin: 6px 0 14px !important;
+}
+ 
+.wccr-dia-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-top: 10px !important;
+}
+.wccr-dia-list li {
+    padding: 6px 0;
+    font-size: 0.94rem;
+    padding-left: 20px;
+    position: relative;
+}
+.wccr-dia1 .wccr-dia-list li { color: #3a4a63; }
+.wccr-dia2 .wccr-dia-list li { color: rgba(255, 255, 255, 0.9); }
+.wccr-dia-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #ce1126;
+    font-weight: 700;
+}
+.wccr-dia2 .wccr-dia-list li::before { color: #64c4f4; }
+ 
+/* --- Botón outline oscuro (nueva variante, mismo sistema de presión) --- */
+.wccr-btn-outline-dark .wp-block-button__link {
+    background-color: transparent !important;
+    color: #002b7f !important;
+    border: 2px solid #002b7f;
+    border-radius: 999px !important;
+    padding: 16px 32px !important;
+    font-weight: 700;
+    box-shadow: 5px 5px 0 #002b7f;
+    transition: transform 0.18s, box-shadow 0.18s, background-color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.wccr-btn-outline-dark .wp-block-button__link:hover {
+    background-color: rgba(0, 43, 127, 0.06) !important;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #002b7f;
+}
+.wccr-btn-outline-dark .wp-block-button__link:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 #002b7f;
+}
+ 
 
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
