@@ -747,6 +747,44 @@
     box-shadow: 0 0 0 #002b7f;
 }
  
+/* ==========================================================
+   TABLA SIN WORDCAMP / CON WORDCAMP
+   ========================================================== */
+.wccr-transformacion-section {
+    padding: 72px 24px;
+}
+.wccr-transformacion-title {
+    color: #002b7f;
+    font-weight: 800;
+    text-align: center;
+}
+ 
+.wccr-sincon-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 36px auto 0;
+    border-collapse: collapse;
+}
+.wccr-sincon-table th {
+    text-align: left;
+    padding: 12px 18px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+.wccr-sincon-table th:first-child { color: #ce1126; }
+.wccr-sincon-table th:last-child { color: #053d78; }
+ 
+.wccr-sincon-table td {
+    padding: 15px 18px;
+    border-top: 1px solid #e1e8f2;
+    font-size: 0.96rem;
+    vertical-align: top;
+}
+.wccr-sincon-table td:first-child { color: #5a6a85; }
+.wccr-sincon-table td:last-child { color: #111111; font-weight: 600; }
+ 
 
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
