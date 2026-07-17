@@ -220,6 +220,10 @@
     font-weight: 700;
 }
 
+.wccr-hero .wp-block-buttons {
+    justify-content: center !important;
+}
+
 /* ==========================================================
    CINTILLO ROJO ANIMADO — mismo mecanismo que el ribbon verde de
    events.wordpress.org/campusconnect (sacado en vivo de su CSS).
