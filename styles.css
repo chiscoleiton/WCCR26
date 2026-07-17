@@ -70,7 +70,7 @@
     width: fit-content;
 }
 
-/* Efecto glass en el badge */
+/* Efecto glass en el badge rojo */
 .wccr-badge-red {
     border: 1px solid rgba(206, 17, 38, 0.35);
     background-color: rgba(206, 17, 38, 0.12);
