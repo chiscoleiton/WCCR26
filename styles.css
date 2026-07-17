@@ -786,6 +786,81 @@
 .wccr-sincon-table td:last-child { color: #111111; font-weight: 600; }
  
 
+/* ==========================================================
+   TESTIMONIOS
+   ========================================================== */
+.wccr-testi-section {
+    background-color: #053d78;
+    color: #ffffff;
+    text-align: center;
+    padding: 72px 24px;
+}
+ 
+.wccr-badge-sky {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #64c4f4 !important;
+    background-color: rgba(100, 196, 244, 0.14);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    width: fit-content;
+}
+ 
+.wccr-testi-title {
+    color: #ffffff !important;
+    font-weight: 800;
+}
+ 
+.wccr-testi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 36px !important;
+    text-align: left;
+}
+@media (max-width: 900px) {
+    .wccr-testi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .wccr-testi-grid { grid-template-columns: 1fr; }
+}
+ 
+.wccr-testi-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+    padding: 26px !important;
+}
+.wccr-testi-quote {
+    font-size: 2.2rem !important;
+    color: #64c4f4 !important;
+    line-height: 1;
+    margin: 0 0 6px !important;
+    display: block;
+}
+.wccr-testi-text {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 0.95rem !important;
+    font-style: italic;
+    margin: 0 !important;
+}
+.wccr-testi-name {
+    margin-top: 16px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    font-size: 0.92rem !important;
+}
+.wccr-testi-role {
+    font-size: 0.78rem !important;
+    color: #64c4f4 !important;
+    margin: 0 !important;
+}
+ 
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
 ============================================================ */
