@@ -31,101 +31,7 @@
     box-shadow: 0px 0px 0px #8c1015;
 }
 
-/* ==========================================================
-   HERO "FALTAN X DÍAS" — WordCamp Costa Rica 2026
-   Basado en inspección real del HTML en vivo (15 jul 2026).
-   Requiere las 7 clases CSS adicionales indicadas en el chat.
-   Pega en Apariencia → Personalizar → CSS adicional.
-   ========================================================== */
-
-/* --- Centrado general del contenido del hero --- */
-.wccr-hero {
-    text-align: center;
-}
-
-/* Centrado vertical del contenido dentro del hero de 800px */
-.wccr-hero {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.wccr-hero .wp-block-columns {
-    justify-content: center;
-}
-.wccr-hero .wp-block-column {
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-/* --- Badge "10 AÑOS DE COMUNIDAD" --- */
-.wccr-badge {
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center;
-    gap: 8px;
-    border-radius: 999px;
-    padding: 8px 20px;
-    margin: 0 auto 32px !important;
-    width: fit-content;
-}
-
-/* Efecto glass en el badge rojo */
-.wccr-badge-red {
-    border: 1px solid rgba(206, 17, 38, 0.35);
-    background-color: rgba(206, 17, 38, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari */
-}
-
-/* Efecto glass en el badge */
-.wccr-badge {
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background-color: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari */
-}
-
-.wccr-badge svg {
-    width: 16px;
-    height: 16px;
-}
-
-/* --- "FALTAN" --- */
-.wccr-title-top {
-    font-size: clamp(24px, 4vw, 40px) !important;
-    font-weight: 900 !important;
-    margin-bottom: 0 !important;
-}
-
-/* --- "78 DÍAS" (actualmente 52px, necesita ser el elemento dominante) --- */
-.wccr-title-days {
-    font-size: clamp(64px, 12vw, 160px) !important;
-    font-weight: 900 !important;
-    line-height: 0.95 !important;
-    margin: 0 0 16px !important;
-}
-
-/* --- "PARA EL #WCCR" --- */
-.wccr-subtitle {
-    font-size: clamp(20px, 3vw, 32px) !important;
-    font-weight: 800 !important;
-    margin-bottom: 40px !important;
-}
-.wccr-subtitle strong {
-    color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
-}
-.wccr-hero-meta {
-    font-size: 17px !important;
-    font-weight: 500 !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    margin-top: 8px !important;
-}
-.wccr-hero-meta strong {
-    color: #ffffff;
-    font-weight: 700;
-}
-
+/* ----------------------------------------------------------------------------------------- Buttons -----*/
 /* ==========================================================
    BOTONES — mismo sistema de "presión" del botón Entradas del navbar:
    hover = medio hundido, active = hundido del todo.
@@ -173,6 +79,144 @@
 .wccr-btn-outline .wp-block-button__link:active {
     transform: translate(5px, 5px);
     box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Botón outline oscuro (nueva variante, mismo sistema de presión) --- */
+.wccr-btn-outline-dark .wp-block-button__link {
+    background-color: transparent !important;
+    color: #002b7f !important;
+    border: 2px solid #002b7f;
+    border-radius: 999px !important;
+    padding: 16px 32px !important;
+    font-weight: 700;
+    box-shadow: 5px 5px 0 #002b7f;
+    transition: transform 0.18s, box-shadow 0.18s, background-color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.wccr-btn-outline-dark .wp-block-button__link:hover {
+    background-color: rgba(0, 43, 127, 0.06) !important;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #002b7f;
+}
+.wccr-btn-outline-dark .wp-block-button__link:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 #002b7f;
+}
+
+/* ----------------------------------------------------------------------------------------- Badges -----*/
+/* ==========================================================
+   BADGES — ya casi lo explico.
+   ========================================================== */
+
+/* --- Badge "10 AÑOS DE COMUNIDAD" --- */
+.wccr-badge {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 8px 20px;
+    margin: 0 auto 32px !important;
+    width: fit-content;
+}
+
+/* Efecto glass en el badge rojo */
+.wccr-badge-red {
+    border: 1px solid rgba(206, 17, 38, 0.35);
+    background-color: rgba(206, 17, 38, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari */
+}
+
+/* Efecto glass en el badge */
+.wccr-badge {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari */
+}
+
+.wccr-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.wccr-badge-sky {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #64c4f4 !important;
+    background-color: rgba(100, 196, 244, 0.14);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    width: fit-content;
+}
+
+/* ----------------------------------------------------------------------------------------- Home -----*/
+/* ==========================================================
+   HERO "FALTAN X DÍAS" — WordCamp Costa Rica 2026
+   Basado en inspección real del HTML en vivo (15 jul 2026).
+   Requiere las 7 clases CSS adicionales indicadas en el chat.
+   Pega en Apariencia → Personalizar → CSS adicional.
+   ========================================================== */
+
+/* --- Centrado general del contenido del hero --- */
+.wccr-hero {
+    text-align: center;
+}
+
+/* Centrado vertical del contenido dentro del hero de 800px */
+.wccr-hero {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wccr-hero .wp-block-columns {
+    justify-content: center;
+}
+.wccr-hero .wp-block-column {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* --- "FALTAN" --- */
+.wccr-title-top {
+    font-size: clamp(24px, 4vw, 40px) !important;
+    font-weight: 900 !important;
+    margin-bottom: 0 !important;
+}
+
+/* --- "78 DÍAS" (actualmente 52px, necesita ser el elemento dominante) --- */
+.wccr-title-days {
+    font-size: clamp(64px, 12vw, 160px) !important;
+    font-weight: 900 !important;
+    line-height: 0.95 !important;
+    margin: 0 0 16px !important;
+}
+
+/* --- "PARA EL #WCCR" --- */
+.wccr-subtitle {
+    font-size: clamp(20px, 3vw, 32px) !important;
+    font-weight: 800 !important;
+    margin-bottom: 40px !important;
+}
+.wccr-subtitle strong {
+    color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
+}
+.wccr-hero-meta {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-top: 8px !important;
+}
+.wccr-hero-meta strong {
+    color: #ffffff;
+    font-weight: 700;
 }
 
 /* ==========================================================
@@ -733,28 +777,6 @@
 }
 .wccr-dia2 .wccr-dia-list li::before { color: #64c4f4; }
  
-/* --- Botón outline oscuro (nueva variante, mismo sistema de presión) --- */
-.wccr-btn-outline-dark .wp-block-button__link {
-    background-color: transparent !important;
-    color: #002b7f !important;
-    border: 2px solid #002b7f;
-    border-radius: 999px !important;
-    padding: 16px 32px !important;
-    font-weight: 700;
-    box-shadow: 5px 5px 0 #002b7f;
-    transition: transform 0.18s, box-shadow 0.18s, background-color 0.15s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-.wccr-btn-outline-dark .wp-block-button__link:hover {
-    background-color: rgba(0, 43, 127, 0.06) !important;
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #002b7f;
-}
-.wccr-btn-outline-dark .wp-block-button__link:active {
-    transform: translate(5px, 5px);
-    box-shadow: 0 0 0 #002b7f;
-}
- 
 /* ==========================================================
    TABLA SIN WORDCAMP / CON WORDCAMP
    ========================================================== */
@@ -802,21 +824,6 @@
     color: #ffffff;
     text-align: center;
     padding: 72px 24px;
-}
- 
-.wccr-badge-sky {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #64c4f4 !important;
-    background-color: rgba(100, 196, 244, 0.14);
-    border-radius: 999px;
-    padding: 8px 20px;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    margin-bottom: 16px;
-    width: fit-content;
 }
  
 .wccr-testi-title {
