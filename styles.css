@@ -963,6 +963,49 @@
     width: 100%;
     font-size: 0.9rem !important;
 }
+
+
+/* ==========================================================
+   FAQ — bloque nativo "Detalles"
+   ========================================================== */
+.wccr-faq-section {
+    background-color: #d3f0ff;
+    padding: 72px 24px;
+}
+.wccr-faq-title {
+    color: #002b7f;
+    font-weight: 800;
+    text-align: center;
+}
+ 
+.wccr-faq-item {
+    border-bottom: 1px solid #e1e8f2;
+    padding: 20px 0 !important;
+    margin-top: 0 !important;
+}
+.wccr-faq-item summary {
+    cursor: pointer;
+    font-weight: 700 !important;
+    font-size: 1.02rem;
+    color: #002b7f;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.wccr-faq-item summary::-webkit-details-marker { display: none; }
+.wccr-faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: #ce1126;
+    flex-shrink: 0;
+}
+.wccr-faq-item[open] summary::after { content: "–"; }
+.wccr-faq-item p {
+    margin-top: 12px !important;
+    font-size: 0.94rem;
+}
  
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
