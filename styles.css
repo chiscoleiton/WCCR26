@@ -409,6 +409,54 @@
     margin: 38px auto 0 !important;
 }
 
+/* ==========================================================
+   CARRUSEL DE FOTOS EN FRANJA ROJA
+   Va con 8-foto-carrusel-markup.html
+   ========================================================== */
+.wccr-foto-carrusel-wrap {
+    background-color: #ce1126;
+    overflow: hidden;
+    padding: 34px 0;
+}
+.wccr-foto-carrusel-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: wccr-scrollFotos 34s linear infinite;
+}
+.wccr-foto-carrusel-wrap:hover .wccr-foto-carrusel-track {
+    animation-play-state: paused;
+}
+.wccr-foto {
+    width: 220px;
+    height: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.14);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    overflow: hidden;
+}
+.wccr-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@keyframes wccr-scrollFotos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wccr-foto-carrusel-track { animation: none; overflow-x: auto; }
+}
+
+
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
 ============================================================ */
