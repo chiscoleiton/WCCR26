@@ -1,3 +1,11 @@
+/* Pausa las animaciones infinitas SOLO dentro del editor de bloques,
+   para que no se trabe mientras editas. El sitio publicado no se toca. */
+.editor-styles-wrapper .wccr-ribbon__track,
+.editor-styles-wrapper .wccr-sponsor-ribbon__track,
+.editor-styles-wrapper .wccr-foto-carrusel-track {
+    animation: none !important;
+}
+
 /* ----------------------------------------------------------------------------------------- Navbar -----*/
 /* ==========================================================
    Botón "ENTRADAS" — efecto 3D presionado
