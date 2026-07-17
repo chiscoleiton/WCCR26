@@ -31,7 +31,6 @@
     box-shadow: 0px 0px 0px #8c1015;
 }
 
-/* ----------------------------------------------------------------------------------------- Home + Hero -----*/
 /* ==========================================================
    HERO "FALTAN X DÍAS" — WordCamp Costa Rica 2026
    Basado en inspección real del HTML en vivo (15 jul 2026).
@@ -345,7 +344,10 @@
     .wccr-sponsor-ribbon__track { animation: none; overflow-x: auto; }
 }
  
-
+.wccr-cifra-row + .wccr-galeria-grid,
+.wccr-galeria-grid + .wccr-sponsor-ribbon {
+    margin-top: 24px !important;
+}
 
 
 /* ============================================================
