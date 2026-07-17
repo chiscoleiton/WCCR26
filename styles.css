@@ -376,10 +376,16 @@
  
 .wccr-fomo-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 18px;
     margin-top: 34px !important;
     text-align: left;
+}
+@media (max-width: 900px) {
+    .wccr-fomo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .wccr-fomo-grid { grid-template-columns: 1fr; }
 }
  
 .wccr-fomo-item {
@@ -402,7 +408,6 @@
     max-width: 680px;
     margin: 38px auto 0 !important;
 }
-
 
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
