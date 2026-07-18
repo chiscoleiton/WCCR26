@@ -1117,7 +1117,7 @@
     justify-content: center;
 }
 .wccr-sponsor-box img {
-    max-height: 56px;
+    /*max-height: 56px;*/
     max-width: 100%;
     width: auto;
     object-fit: contain;
@@ -1125,7 +1125,7 @@
 
 /* --- Caja compartida (Guaria): un solo borde para todos los logos --- */
 .wccr-sponsor-box--shared {
-    max-width: 1100px;
+    /*max-width: 1100px;*/
     margin: 0 auto;
     min-height: 0;
 }
@@ -1141,7 +1141,7 @@
     .wccr-sponsor-logos--plata,
     .wccr-sponsor-logos--bronce {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 460px;
+        /*max-width: 460px;*/
     }
     .wccr-sponsor-logos--guaria {
         grid-template-columns: repeat(2, 1fr);
