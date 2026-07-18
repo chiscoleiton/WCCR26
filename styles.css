@@ -1560,11 +1560,12 @@ footer {
 .wccr-agenda-page .wordcamp-schedule__day {
     position: relative;
     display: flex !important;
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
     align-items: stretch;
-    gap: 18px;
+    gap: 18px !important;
     padding-left: 56px;
     background-color: transparent !important;
+    margin: 0 !important;
 }
 .wccr-agenda-page .wordcamp-schedule__day::before {
     content: "";
@@ -1579,24 +1580,25 @@ footer {
 /* --- Chips de leyenda (Time se oculta, tracks = leyenda de color) --- */
 .wccr-agenda-page .wordcamp-schedule__column-header {
     flex: 0 0 auto;
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 8px;
-    background-color: #ffffff;
-    color: #053d78;
+    background-color: #ffffff !important;
+    color: #053d78 !important;
     font-size: 12.5px;
     font-weight: 700;
     padding: 7px 16px 7px 12px;
-    border-radius: 999px;
-    border: 1.5px solid rgba(0, 43, 127, .25);
+    border-radius: 999px !important;
+    border: 1.5px solid rgba(0, 43, 127, .25) !important;
     margin: 0 8px 8px 0;
 }
 .wccr-agenda-page .wordcamp-schedule__column-header::before {
-    content: "";
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background-color: #053d78;
+    content: "" !important;
+    display: inline-block !important;
+    width: 9px !important;
+    height: 9px !important;
+    border-radius: 50% !important;
+    background-color: #053d78 !important;
     flex: 0 0 auto;
 }
 .wccr-agenda-page .wordcamp-schedule__column-header.is-column-time {
@@ -1604,17 +1606,23 @@ footer {
 }
 /* Salas Taller en la leyenda -> punto rojo */
 .wccr-agenda-page .wordcamp-schedule__column-header[class*="is-column-track-sala-taller"]::before {
-    background-color: #d81f26;
+    background-color: #d81f26 !important;
 }
 
 /* --- Hora de cada bloque: etiqueta con punto sobre la línea de tiempo --- */
 .wccr-agenda-page .wordcamp-schedule__time-slot-header {
-    flex: 1 0 100%;
+    flex: 1 0 100% !important;
     position: relative;
-    margin: 22px 0 4px;
+    margin: 22px 0 4px !important;
+    padding: 0 !important;
     font-size: 19px;
     font-weight: 800;
-    color: #002b7f;
+    color: #002b7f !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 .wccr-agenda-page .wordcamp-schedule__time-slot-header::before {
     content: "";
@@ -1644,6 +1652,7 @@ footer {
     position: relative;
     flex: 1 1 280px;
     max-width: calc(50% - 9px);
+    margin: 0 !important;
     background-color: #ffffff !important;
     border-radius: 14px !important;
     padding: 20px 44px 18px 20px;
@@ -1824,6 +1833,7 @@ footer {
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom {
     flex-basis: 100%;
     max-width: 100%;
+    margin: 0 !important;
     background-color: transparent !important;
     border: 2px dashed rgba(0, 43, 127, .4) !important;
     box-shadow: none !important;
