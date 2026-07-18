@@ -1011,6 +1011,30 @@
     margin-top: 12px !important;
     font-size: 0.94rem;
 }
+
+
+/* ==========================================================
+   CTA DE CIERRE — última sección antes del footer
+   ========================================================== */
+.wccr-cierre-section {
+    background-color: #002b7f;
+    text-align: center;
+    padding: 88px 24px;
+}
+.wccr-cierre-title {
+    color: #ffffff !important;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 44px);
+    max-width: 760px;
+    margin: 0 auto 14px !important;
+    line-height: 1.15;
+}
+.wccr-cierre-lead {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 1.1rem;
+    margin: 0 auto !important;
+}
+
  
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
