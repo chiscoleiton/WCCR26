@@ -131,6 +131,7 @@
 
 /* Efecto glass en el badge rojo */
 .wccr-badge-red {
+	color: #e63238;
     border: 1px solid rgba(206, 17, 38, 0.35);
     background-color: rgba(206, 17, 38, 0.12);
     backdrop-filter: blur(8px);
