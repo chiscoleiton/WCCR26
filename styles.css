@@ -1346,6 +1346,17 @@ footer {
    Si dejás las dos versiones cargadas, van a pelear por
    especificidad y vas a tener resultados random.
 
+   ⚠️ NOTA TÉCNICA — por qué NO hay variables CSS (--algo) acá:
+   la primera versión usaba custom properties (--wccr-navy-deep,
+   etc.) y en tu sitio el panel donde pegaste el CSS las borró
+   silenciosamente (quedó la regla ".wccr-agenda-page { }" vacía).
+   Es un tema del sanitizador de WordPress/tu hosting con
+   declaraciones que empiezan en "--", no de la lógica del CSS.
+   Por eso esta versión repite los hex directo en cada regla —
+   más verboso, pero a prueba de ese filtro. Si en algún momento
+   confirmás que tu "Additional CSS" SÍ soporta variables, avisame
+   y te devuelvo la versión con --variables (es más corta).
+
    ESTRUCTURA DE BLOQUES A CREAR EN EL EDITOR
    (se arma UNA vez y se copia igual en la página de Día 1 y
    en la de Día 2 — lo único que cambia entre las dos es a cuál
@@ -1367,27 +1378,20 @@ footer {
      nuevas, adentro del mismo Group de arriba (para que el fondo
      celeste le pase por detrás también).
 
-   Los links de cada Button apuntan uno a la página de Día 1 y
-   el otro a la de Día 2 (los configurás vos en el editor, no es
-   CSS). El botón de la página en la que estás lleva "is-active".
+   ⚠️ IMPORTANTE sobre el bloque "WordCamp Schedule": si tu página
+   "Día 1 / Sábado" está mostrando el contenido del 19 de
+   septiembre, es porque el bloque en esa página quedó apuntando
+   al día equivocado (o copiaste el bloque completo de la otra
+   página, que trae los dos días adentro). En el editor, seleccioná
+   el bloque "WordCamp Schedule" → panel derecho → tiene que haber
+   una opción para filtrar/mostrar un solo día. En la página
+   "agenda-sabado" tiene que quedar en 18 de septiembre; en la de
+   domingo, en 19. Si no ves esa opción, decime qué versión del
+   plugin de WordCamp Schedule Block tenés y reviso el filtro exacto.
 
    Todo lo de abajo asume exactamente esa estructura de clases.
    Si le cambiás el nombre a alguna, actualizala acá también.
    ============================================================ */
-
-.wccr-agenda-page {
-    /* Variables locales — no tocan nada fuera de la agenda */
-    --wccr-navy-deep: #002b7f;
-    --wccr-navy: #053d78;
-    --wccr-blue: #64c4f4;
-    --wccr-blue-tint: #d3f0ff;
-    --wccr-red: #d81f26;
-    --wccr-red-dark: #ce1126;
-    --wccr-red-tint: #fbdcdd;
-    --wccr-ink: #0b1b33;
-    --wccr-gray: #5b6b82;
-    --wccr-radius: 14px;
-}
 
 /* ------------------------------------------------------------
    1. PÁGINA — fondo celeste a todo el ancho, sin caja/panel
@@ -1395,7 +1399,7 @@ footer {
 .wccr-agenda-page {
     position: relative;
     overflow: hidden;
-    background-color: var(--wccr-blue-tint);
+    background-color: #d3f0ff;
     padding-bottom: 80px;
 }
 
@@ -1436,7 +1440,7 @@ footer {
 .wccr-agenda-title {
     font-size: clamp(34px, 5vw, 52px) !important;
     font-weight: 900 !important;
-    color: var(--wccr-navy-deep) !important;
+    color: #002b7f !important;
     margin: 0 0 10px !important;
     position: relative;
     display: inline-block;
@@ -1446,13 +1450,13 @@ footer {
     display: block;
     width: 72px;
     height: 6px;
-    background-color: var(--wccr-red);
+    background-color: #d81f26;
     border-radius: 999px;
     margin: 14px auto 0;
 }
 
 .wccr-agenda-subtitle {
-    color: var(--wccr-gray) !important;
+    color: #5b6b82 !important;
     font-size: 16px !important;
     max-width: 560px;
     margin: 0 auto !important;
@@ -1484,23 +1488,23 @@ footer {
     padding: 13px 30px !important;
     border-radius: 999px !important;
     background-color: #ffffff !important;
-    color: var(--wccr-navy-deep) !important;
-    border: 3px solid var(--wccr-navy-deep);
-    box-shadow: 5px 5px 0 var(--wccr-navy-deep);
+    color: #002b7f !important;
+    border: 3px solid #002b7f;
+    box-shadow: 5px 5px 0 #002b7f;
     transition: transform .15s ease, box-shadow .15s ease;
     -webkit-tap-highlight-color: transparent;
 }
 .wccr-day-toggle .wp-block-button.wccr-day-tab .wp-block-button__link:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--wccr-navy-deep);
+    box-shadow: 2px 2px 0 #002b7f;
 }
 
 /* Página actual: agregale la clase adicional "is-active" al Button */
 .wccr-day-toggle .wp-block-button.wccr-day-tab.is-active .wp-block-button__link {
-    background-color: var(--wccr-navy-deep) !important;
+    background-color: #002b7f !important;
     color: #ffffff !important;
     transform: translate(5px, 5px);
-    box-shadow: 0 0 0 var(--wccr-navy-deep);
+    box-shadow: 0 0 0 #002b7f;
     cursor: default;
 }
 
@@ -1527,14 +1531,14 @@ footer {
     width: fit-content;
     margin: 0 auto 40px;
     background-color: #ffffff;
-    color: var(--wccr-navy-deep);
+    color: #002b7f;
     font-size: 26px;
     font-weight: 900;
     text-transform: capitalize;
     padding: 20px 44px;
-    border-radius: var(--wccr-radius);
-    border: 3px solid var(--wccr-navy-deep);
-    box-shadow: 7px 7px 0 var(--wccr-navy-deep);
+    border-radius: 14px;
+    border: 3px solid #002b7f;
+    box-shadow: 7px 7px 0 #002b7f;
     text-align: center;
 }
 .wccr-agenda-page .wordcamp-schedule__date::before {
@@ -1568,7 +1572,7 @@ footer {
     align-items: center;
     gap: 8px;
     background-color: #ffffff;
-    color: var(--wccr-navy);
+    color: #053d78;
     font-size: 12.5px;
     font-weight: 700;
     padding: 7px 16px 7px 12px;
@@ -1581,7 +1585,7 @@ footer {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: var(--wccr-navy);
+    background-color: #053d78;
     flex: 0 0 auto;
 }
 .wccr-agenda-page .wordcamp-schedule__column-header.is-column-time {
@@ -1589,7 +1593,7 @@ footer {
 }
 /* Salas Taller en la leyenda -> punto rojo */
 .wccr-agenda-page .wordcamp-schedule__column-header[class*="is-column-track-sala-taller"]::before {
-    background-color: var(--wccr-red);
+    background-color: #d81f26;
 }
 
 /* --- Hora de cada bloque: etiqueta con punto sobre la línea de tiempo --- */
@@ -1599,7 +1603,7 @@ footer {
     margin: 22px 0 4px;
     font-size: 19px;
     font-weight: 800;
-    color: var(--wccr-navy-deep);
+    color: #002b7f;
 }
 .wccr-agenda-page .wordcamp-schedule__time-slot-header::before {
     content: "";
@@ -1610,8 +1614,8 @@ footer {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: var(--wccr-navy-deep);
-    border: 3px solid var(--wccr-blue-tint);
+    background-color: #002b7f;
+    border: 3px solid #d3f0ff;
     box-shadow: 0 0 0 3px rgba(0, 43, 127, .25);
 }
 .wccr-agenda-page .wordcamp-schedule__day > .wordcamp-schedule__time-slot-header:first-of-type {
@@ -1619,48 +1623,86 @@ footer {
 }
 
 /* --- Tarjeta de sesión: borde + sombra plana del MISMO color ---
-   Track "Auditorio" = navy · Track "Sala Taller X" = rojo.
-   Se controla con la variable --wccr-accent, redefinida más abajo
-   para las sesiones de sala taller. */
+   Track "Auditorio" = navy (bloque A) · Track "Sala Taller X" =
+   rojo (bloque B, más abajo, sobreescribe el color en los
+   elementos hijos de esas sesiones). Sin variables CSS: cada
+   bloque repite sus propios hex. */
+
+/* -- 4.1 Sesión (por defecto = navy / Auditorio) -- */
 .wccr-agenda-page .wordcamp-schedule__session {
-    --wccr-accent: var(--wccr-navy-deep);
-    --wccr-accent-tint: var(--wccr-blue-tint);
     position: relative;
     flex: 1 1 280px;
     max-width: calc(50% - 9px);
     background-color: #ffffff;
-    border-radius: var(--wccr-radius);
+    border-radius: 14px;
     padding: 20px 44px 18px 20px;
-    border: 3px solid var(--wccr-accent);
-    box-shadow: 6px 6px 0 var(--wccr-accent);
+    border: 3px solid #002b7f;
+    box-shadow: 6px 6px 0 #002b7f;
     transition: transform .15s ease, box-shadow .15s ease;
 }
 .wccr-agenda-page .wordcamp-schedule__session:hover {
     transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0 var(--wccr-accent);
+    box-shadow: 3px 3px 0 #002b7f;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-spanning-all-tracks {
     flex-basis: 100%;
     max-width: 100%;
 }
-
-/* Sesiones que SOLO viven en una Sala Taller (paralelas) -> acento rojo.
-   Si una sesión tiene Auditorio Y Sala Taller a la vez (ej. keynote que
-   se transmite a todas las salas), se queda en navy. */
-.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) {
-    --wccr-accent: var(--wccr-red);
-    --wccr-accent-tint: var(--wccr-red-tint);
+.wccr-agenda-page .wordcamp-schedule__session-category dd {
+    background-color: #d3f0ff;
+    color: #002b7f;
+}
+.wccr-agenda-page .wordcamp-schedule__session-title a:hover {
+    color: #002b7f;
+}
+.wccr-agenda-page .wcb-session-favourite-icon .fav-session-button[aria-pressed="true"] .dashicon::before,
+.wccr-agenda-page .wcb-session-favourite-icon .fav-session-button:hover .dashicon::before {
+    color: #002b7f;
+}
+.wccr-agenda-page .wordcamp-schedule__session-speakers::before {
+    background-color: #d3f0ff;
+}
+.wccr-agenda-page .wordcamp-schedule__session-speakers dd a:hover {
+    color: #002b7f;
 }
 
-/* --- Categoría: badge tipo pill --- */
+/* -- 4.2 Sesión que SOLO vive en una Sala Taller (paralela) = rojo.
+   Si una sesión tiene Auditorio Y Sala Taller a la vez (ej. una
+   keynote que se transmite a todas las salas), se queda en navy,
+   por eso el ":not(.has-track-auditorio)". -- */
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) {
+    border-color: #d81f26;
+    box-shadow: 6px 6px 0 #d81f26;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio):hover {
+    box-shadow: 3px 3px 0 #d81f26;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-category dd {
+    background-color: #fbdcdd;
+    color: #d81f26;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-title a:hover {
+    color: #d81f26;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wcb-session-favourite-icon .fav-session-button[aria-pressed="true"] .dashicon::before,
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wcb-session-favourite-icon .fav-session-button:hover .dashicon::before {
+    color: #d81f26;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-speakers::before {
+    background-color: #fbdcdd;
+}
+.wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-speakers dd a:hover {
+    color: #d81f26;
+}
+
+/* --- Categoría: badge tipo pill (colores por defecto = navy,
+   sobreescritos arriba para sesiones de Sala Taller) --- */
 .wccr-agenda-page .wordcamp-schedule__session-category {
     margin: 0 0 10px;
 }
 .wccr-agenda-page .wordcamp-schedule__session-category dd {
     display: inline-block;
     margin: 0;
-    background-color: var(--wccr-accent-tint);
-    color: var(--wccr-accent);
     font-size: 10.5px;
     font-weight: 800;
     text-transform: uppercase;
@@ -1675,14 +1717,13 @@ footer {
     font-size: 16.5px;
     line-height: 1.35;
     font-weight: 800;
-    color: var(--wccr-ink);
+    color: #0b1b33;
 }
 .wccr-agenda-page .wordcamp-schedule__session-title a {
     color: inherit;
     text-decoration: none;
 }
 .wccr-agenda-page .wordcamp-schedule__session-title a:hover {
-    color: var(--wccr-accent);
     text-decoration: underline;
 }
 
@@ -1706,10 +1747,6 @@ footer {
 }
 .wccr-agenda-page .wcb-session-favourite-icon .fav-session-button[aria-pressed="true"] .dashicon::before {
     content: "★";
-    color: var(--wccr-accent);
-}
-.wccr-agenda-page .wcb-session-favourite-icon .fav-session-button:hover .dashicon::before {
-    color: var(--wccr-accent);
 }
 
 /* --- Horario de la sesión (ej. "2:00 pm - 3:00 pm") --- */
@@ -1717,7 +1754,7 @@ footer {
     margin: 0 0 12px;
     font-size: 12.5px;
     font-weight: 600;
-    color: var(--wccr-gray);
+    color: #5b6b82;
 }
 .wccr-agenda-page .wordcamp-schedule__session > p::before {
     content: "🕐 ";
@@ -1739,7 +1776,6 @@ footer {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: var(--wccr-accent-tint);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1751,13 +1787,10 @@ footer {
     flex-direction: column;
 }
 .wccr-agenda-page .wordcamp-schedule__session-speakers dd a {
-    color: var(--wccr-ink);
+    color: #0b1b33;
     font-weight: 700;
     font-size: 13.5px;
     text-decoration: none;
-}
-.wccr-agenda-page .wordcamp-schedule__session-speakers dd a:hover {
-    color: var(--wccr-accent);
 }
 
 /* --- Track / sala: subtexto bajo el nombre del ponente --- */
@@ -1768,7 +1801,7 @@ footer {
     margin: 0;
     font-size: 11.5px;
     font-weight: 600;
-    color: var(--wccr-gray);
+    color: #5b6b82;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-spanning-all-tracks .wordcamp-schedule__session-tracks {
     margin-left: 0;
@@ -1800,7 +1833,7 @@ footer {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: .04em;
-    color: var(--wccr-navy-deep);
+    color: #002b7f;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom > p {
     margin: 0;
