@@ -31,6 +31,131 @@
     box-shadow: 0px 0px 0px #8c1015;
 }
 
+/* ==========================================================
+   FOOTER — tarjeta de newsletter flotante + links + social + copyright
+   ========================================================== */
+.wccr-footer-section {
+    background-color: #57C2F1;
+    position: relative;
+    padding: 0 24px 48px;
+    overflow: hidden;
+}
+
+/* --- Tarjeta blanca flotante (mismo truco que .wccr-datos-banner) --- */
+.wccr-newsletter-card {
+    background-color: #ffffff;
+    border: 2px solid #002b7f;
+    border-radius: 20px;
+    max-width: 560px;
+    margin: -64px auto 0;
+    position: relative;
+    z-index: 3;
+    padding: 40px 36px;
+    text-align: center;
+    box-shadow: 0 24px 48px rgba(0, 20, 60, 0.18);
+}
+.wccr-newsletter-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+.wccr-newsletter-title {
+    color: #002b7f !important;
+    font-weight: 800;
+    font-size: 1.4rem !important;
+    margin: 0 0 10px !important;
+}
+.wccr-newsletter-desc {
+    color: #5a6a85;
+    font-size: 0.92rem;
+    max-width: 420px;
+    margin: 0 auto 22px;
+}
+.wccr-newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wccr-newsletter-input {
+    flex: 1 1 220px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1.5px solid #c7d6e0;
+    font-size: 0.92rem;
+    font-family: inherit;
+}
+.wccr-newsletter-input:focus {
+    outline: none;
+    border-color: #002b7f;
+}
+.wccr-newsletter-btn {
+    background-color: #d81f26;
+    color: #ffffff;
+    border: 2px solid #8c1015;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #8c1015;
+    transition: transform 0.18s, box-shadow 0.18s, background-color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
+}
+.wccr-newsletter-btn:hover {
+    background-color: #e63238;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #8c1015;
+}
+.wccr-newsletter-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 #8c1015;
+}
+
+/* --- Franja inferior: links / social / copyright --- */
+.wccr-footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+.wccr-footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+.wccr-footer-links a {
+    color: #002b7f;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.wccr-footer-links a:hover { text-decoration: underline; }
+
+.wccr-footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+}
+.wccr-footer-social a { text-decoration: none; }
+
+.wccr-footer-copy {
+    color: #043059;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .wccr-newsletter-card { padding: 30px 22px; margin-top: -44px; }
+    .wccr-newsletter-form { flex-direction: column; }
+    .wccr-newsletter-btn { width: 100%; }
+}
+
 /* ----------------------------------------------------------------------------------------- Buttons -----*/
 /* ==========================================================
    BOTONES — mismo sistema de "presión" del botón Entradas del navbar:
