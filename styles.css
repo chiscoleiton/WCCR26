@@ -198,7 +198,7 @@
 
 /* --- "FALTAN" --- */
 .wccr-title-top {
-    font-size: clamp(32px, 8vw, 80px) !important;
+    font-size: clamp(32px, 8vw, 60px) !important;
     font-weight: 900 !important;
     margin-bottom: 0 !important;
     color: #ffffff !important;
