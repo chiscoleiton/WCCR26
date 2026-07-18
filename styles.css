@@ -960,7 +960,7 @@
     justify-content: center;
 }
 .wccr-sponsor-box img {
-    max-height: 56px;
+    /*max-height: 56px;*/
     max-width: 100%;
     width: auto;
     object-fit: contain;
