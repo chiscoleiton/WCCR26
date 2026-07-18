@@ -34,6 +34,10 @@
 /* ==========================================================
    FOOTER — tarjeta de newsletter flotante + links + social + copyright
    ========================================================== */
+footer {
+	margin-block-start: 0 !important;
+}
+
 .wccr-footer-section {
     background-color: #57C2F1;
     position: relative;
