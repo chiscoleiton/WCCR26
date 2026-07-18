@@ -113,47 +113,73 @@
     box-shadow: 0 0 0 #8c1015;
 }
 
-/* --- Franja inferior: links / social / copyright --- */
+/* --- Franja inferior: links / social / copyright (alineado a la izq.) --- */
 .wccr-footer-bottom {
-    text-align: center;
-    padding-top: 40px;
+    text-align: left;
+    padding-top: 56px;
+    max-width: 1100px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 .wccr-footer-links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 24px;
-    margin-bottom: 16px;
+    gap: 32px;
+    margin-bottom: 20px;
 }
 .wccr-footer-links a {
     color: #002b7f;
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 800;
+    font-size: 1.05rem;
     text-decoration: none;
 }
 .wccr-footer-links a:hover { text-decoration: underline; }
 
 .wccr-footer-social {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 16px;
-    margin-bottom: 14px;
-    font-size: 1.1rem;
+    margin-bottom: 18px;
+    font-size: 1.2rem;
 }
-.wccr-footer-social a { text-decoration: none; }
+.wccr-footer-social a {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.35);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .wccr-footer-copy {
-    color: #043059;
-    font-size: 0.8rem;
+    color: #002b7f;
+    font-weight: 700;
+    font-size: 1rem;
     margin: 0;
 }
+
+/* --- Ilustración decorativa (placeholder) --- */
+.wccr-footer-illustration {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 340px;
+    max-width: 40vw;
+    line-height: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.wccr-footer-illustration svg { width: 100%; height: auto; display: block; }
 
 @media (max-width: 640px) {
     .wccr-newsletter-card { padding: 30px 22px; margin-top: -44px; }
     .wccr-newsletter-form { flex-direction: column; }
     .wccr-newsletter-btn { width: 100%; }
+    .wccr-footer-illustration { width: 200px; opacity: 0.5; }
 }
 
 /* ----------------------------------------------------------------------------------------- Buttons -----*/
@@ -1037,14 +1063,14 @@
     max-width: 1100px;
     margin: 0 auto;
 }
- 
+
 .wccr-sponsor-tier {
     margin-top: 48px;
 }
 .wccr-sponsor-tier:first-of-type {
     margin-top: 36px;
 }
- 
+
 /* --- Badge de nivel (pastilla de color) --- */
 .wccr-tier-badge {
     display: inline-flex;
@@ -1065,34 +1091,62 @@
 .wccr-tier-badge--plata  { background-color: #C7D6E0; }
 .wccr-tier-badge--bronce { background-color: #F0B87A; }
 .wccr-tier-badge--guaria { background-color: #C9B8EE; }
- 
-/* --- Caja de cada logo --- */
+
+/* --- Grid de logos: columnas fijas por nivel (mediakit) ---
+   No uso auto-fit/minmax a propósito — ya nos mordió antes con
+   grids que no respetan el número exacto de columnas. */
 .wccr-sponsor-logos {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid !important;
     gap: 24px;
+    margin: 0 auto;
 }
+.wccr-sponsor-logos--oro    { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
+.wccr-sponsor-logos--plata  { grid-template-columns: repeat(3, 1fr); max-width: 900px; }
+.wccr-sponsor-logos--bronce { grid-template-columns: repeat(4, 1fr); max-width: 1100px; }
+.wccr-sponsor-logos--guaria { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+
+/* --- Caja individual por logo (Oro / Plata / Bronce) --- */
 .wccr-sponsor-box {
     background-color: #ffffff;
     border: 1.5px solid #002b7f;
     border-radius: 10px;
     padding: 24px;
-    width: 260px;
     min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .wccr-sponsor-box img {
-    /*max-height: 56px;*/
+    max-height: 56px;
     max-width: 100%;
     width: auto;
     object-fit: contain;
 }
- 
+
+/* --- Caja compartida (Guaria): un solo borde para todos los logos --- */
+.wccr-sponsor-box--shared {
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 0;
+}
+.wccr-sponsor-box--shared .wccr-sponsor-logos--guaria img {
+    max-height: 44px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
 @media (max-width: 700px) {
-    .wccr-sponsor-box { width: 100%; max-width: 320px; }
+    .wccr-sponsor-logos--oro,
+    .wccr-sponsor-logos--plata,
+    .wccr-sponsor-logos--bronce {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 460px;
+    }
+    .wccr-sponsor-logos--guaria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .wccr-sponsor-box { padding: 16px; }
 }
 
 /* ==========================================================
