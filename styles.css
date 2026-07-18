@@ -969,6 +969,33 @@
     font-size: 0.9rem !important;
 }
 
+/* ==========================================================
+   PATROCINIOS DE ENTRADA DIRECTA — tarjetas de compra (Morpho/Guaria)
+   Reusa .wccr-precios-grid-2 / .wccr-precio-card / .wccr-precio-nombre /
+   .wccr-precio-monto / .wccr-precio-desc / .wccr-btn-outline-dark
+   (ya existen en tu CSS de Entradas) — solo agrega el wrapper de sección.
+   ========================================================== */
+.wccr-patrocinio-directo-section {
+    background-color: #d3f0ff;
+    text-align: center;
+    padding: 72px 24px;
+}
+.wccr-patrocinio-directo-title {
+    color: #002b7f;
+    font-weight: 800;
+}
+.wccr-patrocinio-directo-lead {
+    font-size: 1.08rem;
+    max-width: 640px;
+    margin: 0 auto 8px;
+    color: #3a4a63;
+}
+.wccr-patrocinio-directo-nota {
+    font-size: 0.96rem;
+    max-width: 520px;
+    margin: 32px auto 0;
+    color: #3a4a63;
+}
 
 /* ==========================================================
    FAQ — bloque nativo "Detalles"
