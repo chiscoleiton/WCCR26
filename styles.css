@@ -1391,6 +1391,16 @@ footer {
 
    Todo lo de abajo asume exactamente esa estructura de clases.
    Si le cambiás el nombre a alguna, actualizala acá también.
+
+   ⚠️ NOTA TÉCNICA #2 — por qué hay tantos !important acá abajo:
+   el plugin "WordCamp Schedule Block" carga su propio CSS con
+   reglas para .wordcamp-schedule__day (display:grid) y
+   .wordcamp-schedule__session (fondo/sombra por defecto del
+   plugin). Ese archivo del plugin no lo pude leer desde afuera
+   para calcular su especificidad exacta, así que en vez de
+   adivinar, fuerzo !important en las propiedades que le pisan el
+   layout (display, fondo, borde, sombra) — así ganamos siempre,
+   sin importar el orden en que WordPress cargue los estilos.
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -1522,7 +1532,7 @@ footer {
 }
 
 .wccr-agenda-page .wordcamp-schedule {
-    background: transparent;
+    background: transparent !important;
 }
 
 /* --- Fecha del día: tarjeta con borde + sombra plana --- */
@@ -1530,15 +1540,15 @@ footer {
     position: relative;
     width: fit-content;
     margin: 0 auto 40px;
-    background-color: #ffffff;
-    color: #002b7f;
+    background-color: #ffffff !important;
+    color: #002b7f !important;
     font-size: 26px;
     font-weight: 900;
     text-transform: capitalize;
     padding: 20px 44px;
-    border-radius: 14px;
-    border: 3px solid #002b7f;
-    box-shadow: 7px 7px 0 #002b7f;
+    border-radius: 14px !important;
+    border: 3px solid #002b7f !important;
+    box-shadow: 7px 7px 0 #002b7f !important;
     text-align: center;
 }
 .wccr-agenda-page .wordcamp-schedule__date::before {
@@ -1549,11 +1559,12 @@ footer {
 /* --- Día: contenedor flex con línea de tiempo a la izquierda --- */
 .wccr-agenda-page .wordcamp-schedule__day {
     position: relative;
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     align-items: stretch;
     gap: 18px;
     padding-left: 56px;
+    background-color: transparent !important;
 }
 .wccr-agenda-page .wordcamp-schedule__day::before {
     content: "";
@@ -1589,7 +1600,7 @@ footer {
     flex: 0 0 auto;
 }
 .wccr-agenda-page .wordcamp-schedule__column-header.is-column-time {
-    display: none;
+    display: none !important;
 }
 /* Salas Taller en la leyenda -> punto rojo */
 .wccr-agenda-page .wordcamp-schedule__column-header[class*="is-column-track-sala-taller"]::before {
@@ -1633,24 +1644,24 @@ footer {
     position: relative;
     flex: 1 1 280px;
     max-width: calc(50% - 9px);
-    background-color: #ffffff;
-    border-radius: 14px;
+    background-color: #ffffff !important;
+    border-radius: 14px !important;
     padding: 20px 44px 18px 20px;
-    border: 3px solid #002b7f;
-    box-shadow: 6px 6px 0 #002b7f;
+    border: 3px solid #002b7f !important;
+    box-shadow: 6px 6px 0 #002b7f !important;
     transition: transform .15s ease, box-shadow .15s ease;
 }
 .wccr-agenda-page .wordcamp-schedule__session:hover {
     transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0 #002b7f;
+    box-shadow: 3px 3px 0 #002b7f !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-spanning-all-tracks {
     flex-basis: 100%;
     max-width: 100%;
 }
 .wccr-agenda-page .wordcamp-schedule__session-category dd {
-    background-color: #d3f0ff;
-    color: #002b7f;
+    background-color: #d3f0ff !important;
+    color: #002b7f !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session-title a:hover {
     color: #002b7f;
@@ -1671,15 +1682,15 @@ footer {
    keynote que se transmite a todas las salas), se queda en navy,
    por eso el ":not(.has-track-auditorio)". -- */
 .wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) {
-    border-color: #d81f26;
-    box-shadow: 6px 6px 0 #d81f26;
+    border-color: #d81f26 !important;
+    box-shadow: 6px 6px 0 #d81f26 !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio):hover {
-    box-shadow: 3px 3px 0 #d81f26;
+    box-shadow: 3px 3px 0 #d81f26 !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-category dd {
-    background-color: #fbdcdd;
-    color: #d81f26;
+    background-color: #fbdcdd !important;
+    color: #d81f26 !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session[class*="has-track-sala-taller"]:not(.has-track-auditorio) .wordcamp-schedule__session-title a:hover {
     color: #d81f26;
@@ -1813,12 +1824,12 @@ footer {
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom {
     flex-basis: 100%;
     max-width: 100%;
-    background-color: transparent;
-    border: 2px dashed rgba(0, 43, 127, .4);
-    box-shadow: none;
-    border-radius: 999px;
+    background-color: transparent !important;
+    border: 2px dashed rgba(0, 43, 127, .4) !important;
+    box-shadow: none !important;
+    border-radius: 999px !important;
     padding: 13px 26px;
-    display: flex;
+    display: flex !important;
     align-items: baseline;
     justify-content: center;
     gap: 10px;
@@ -1826,7 +1837,7 @@ footer {
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom:hover {
     transform: none;
-    box-shadow: none;
+    box-shadow: none !important;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom .wordcamp-schedule__session-title {
     margin: 0;
@@ -1885,7 +1896,6 @@ footer {
         font-size: 13.5px !important;
     }
 }
-
 
  
 /* ============================================================
