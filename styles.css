@@ -120,6 +120,15 @@
     width: fit-content;
 }
 
+/* Efecto glass en el badge */
+.wccr-badge {
+	color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari */
+}
+
 /* Efecto glass en el badge rojo */
 .wccr-badge-red {
     border: 1px solid rgba(206, 17, 38, 0.35);
