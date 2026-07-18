@@ -893,6 +893,82 @@
     margin: 0 !important;
 }
 
+/* ==========================================================
+   PATROCINADORES v2 — badge de color por nivel + logos en caja
+   Reemplaza las reglas .wccr-sponsor-logos / .wccr-tier-oro / etc.
+   que te di en el archivo 14 (esas ya no aplican con este HTML).
+   ========================================================== */
+.wccr-patrocinadores-section {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 72px 24px;
+}
+.wccr-patrocinadores-title {
+    color: #002b7f;
+    font-weight: 800;
+    margin-bottom: 8px !important;
+}
+.wccr-patrocinadores-tiers {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+ 
+.wccr-sponsor-tier {
+    margin-top: 48px;
+}
+.wccr-sponsor-tier:first-of-type {
+    margin-top: 36px;
+}
+ 
+/* --- Badge de nivel (pastilla de color) --- */
+.wccr-tier-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #002b7f;
+    border-radius: 999px;
+    padding: 8px 26px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #002b7f;
+    margin: 0 auto 22px !important;
+    width: fit-content;
+    box-shadow: 3px 3px 0 rgba(0, 43, 127, 0.15);
+}
+.wccr-tier-badge--oro    { background-color: #EFBA2D; }
+.wccr-tier-badge--plata  { background-color: #C7D6E0; }
+.wccr-tier-badge--bronce { background-color: #F0B87A; }
+.wccr-tier-badge--guaria { background-color: #C9B8EE; }
+ 
+/* --- Caja de cada logo --- */
+.wccr-sponsor-logos {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+.wccr-sponsor-box {
+    background-color: #ffffff;
+    border: 1.5px solid #002b7f;
+    border-radius: 10px;
+    padding: 24px;
+    width: 260px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wccr-sponsor-box img {
+    max-height: 56px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+ 
+@media (max-width: 700px) {
+    .wccr-sponsor-box { width: 100%; max-width: 320px; }
+}
 
 /* ==========================================================
    ENTRADAS — tarjetas de precio
