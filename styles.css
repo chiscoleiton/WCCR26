@@ -211,15 +211,15 @@
     line-height: 0.95 !important;
     margin: 0 0 16px !important;
 }
+.wccr-title strong {
+    color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
+}
 
 /* --- "PARA EL #WCCR" --- */
 .wccr-subtitle {
     font-size: clamp(20px, 3vw, 32px) !important;
     font-weight: 800 !important;
     margin-bottom: 40px !important;
-}
-.wccr-subtitle strong {
-    color: #7fd1ff; /* celeste acento, ajusta al hex de marca si difiere */
 }
 .wccr-hero-meta {
     font-size: 17px !important;
