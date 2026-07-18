@@ -121,7 +121,7 @@
 }
 
 /* Efecto glass en el badge */
-.wccr-badge {
+.wccr-badge-white {
 	color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.35);
     background-color: rgba(255, 255, 255, 0.12);
