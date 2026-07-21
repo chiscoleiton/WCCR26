@@ -1664,7 +1664,7 @@ footer {
     transform: translate(3px, 3px);
     box-shadow: 3px 3px 0 #002b7f !important;
 }
-.wccr-agenda-page .wordcamp-schedule__session.is-spanning-all-tracks {
+.wccr-agenda-page .wordcamp-schedule__session.has-track-auditorio {
     flex-basis: 100%;
     max-width: 100%;
 }
