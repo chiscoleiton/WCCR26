@@ -1,14 +1,3 @@
-/* ==========================================================================
-   WordCamp Costa Rica 2026 — hoja maestra de estilos
-   --------------------------------------------------------------------------
-   Cada seccion vive en su propio archivo dentro de /css.
-   El orden importa: base primero, luego componentes, luego secciones.
-   Para WordPress: pega el contenido de estos archivos (en este mismo orden)
-   en Apariencia -> Personalizar -> CSS adicional.
-   ========================================================================== */
-
-@import url("agenda.css"); 
-
 /* ----------------------------------------------------------------------------------------- Navbar -----*/
 /* ==========================================================
    Botón "ENTRADAS" — efecto 3D presionado
@@ -1956,7 +1945,7 @@ footer {
 #tix tbody tr + tr th,
 #tix tbody tr + tr td { border-top: 1.5px dashed #d8cfbc; }
 #tix .tix-ticket-title { font-family: Poppins; font-weight: 800; font-size: 19px; color: #002b7f; }
-#tix .tix-ticket-excerpt { color: #4C5C50; font-size: 14px; line-height: 1.5; }
+#tix .tix-ticket-excerpt { color: #111111; font-size: 14px; line-height: 1.5; }
 #tix .tix-column-price { font-family: Poppins; font-weight: 800; font-size: 18px; color: #002b7f; white-space: nowrap; }
 #tix .tix-column-remaining { font-family: "IBM Plex Mono","Fira Code",monospace; color: #ce1126; font-weight: 600; }
 
