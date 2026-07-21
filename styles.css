@@ -1,3 +1,14 @@
+/* ==========================================================================
+   WordCamp Costa Rica 2026 — hoja maestra de estilos
+   --------------------------------------------------------------------------
+   Cada seccion vive en su propio archivo dentro de /css.
+   El orden importa: base primero, luego componentes, luego secciones.
+   Para WordPress: pega el contenido de estos archivos (en este mismo orden)
+   en Apariencia -> Personalizar -> CSS adicional.
+   ========================================================================== */
+
+@import url("agenda.css"); 
+
 /* ----------------------------------------------------------------------------------------- Navbar -----*/
 /* ==========================================================
    Botón "ENTRADAS" — efecto 3D presionado
