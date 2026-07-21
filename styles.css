@@ -1926,7 +1926,7 @@ footer {
   max-width: 1160px;
   margin: 34px auto 0;
   padding: 0 24px 20px;
-  font-family: "Public Sans","Manrope",system-ui,sans-serif;
+  font-family: Poppins;
 }
 
 /* tabla de boletos como tarjeta sticker */
@@ -1947,8 +1947,8 @@ footer {
   font-family: "IBM Plex Mono","Fira Code",monospace;
   font-size: 12px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .08em;
-  color: #0E3A22;
-  background: #DEEFE0;
+  color: #002b7f;
+  background: #d3f0ff;
   border-bottom: 2px solid #002b7f;
 }
 
@@ -1958,7 +1958,7 @@ footer {
 #tix .tix-ticket-title { font-family: Poppins; font-weight: 800; font-size: 19px; color: #002b7f; }
 #tix .tix-ticket-excerpt { color: #4C5C50; font-size: 14px; line-height: 1.5; }
 #tix .tix-column-price { font-family: Poppins; font-weight: 800; font-size: 18px; color: #002b7f; white-space: nowrap; }
-#tix .tix-column-remaining { font-family: "IBM Plex Mono","Fira Code",monospace; color: #D95B2B; font-weight: 600; }
+#tix .tix-column-remaining { font-family: "IBM Plex Mono","Fira Code",monospace; color: #ce1126; font-weight: 600; }
 
 /* selector de cantidad */
 #tix select {
