@@ -1959,13 +1959,13 @@ footer {
 /* boton de registro */
 #tix input[type="submit"] {
   font-family: Poppins; font-weight: 700; font-size: 17px;
-  background: #2FBF5C; color: #002b7f;
+  background: #ffffff; color: #002b7f;
   border: 2px solid #002b7f; border-radius: 14px;
   box-shadow: 5px 5px 0 #002b7f;
   padding: 14px 30px; margin-top: 20px; cursor: pointer;
   transition: transform .18s ease, box-shadow .18s ease;
 }
-#tix input[type="submit"]:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #002b7f; }
+#tix input[type="submit"]:hover { background: rgba(0, 43, 127, 0.06) !important; transform: translate(2px, 2px); box-shadow: 2px 2px 0 #002b7f; }
 
 /* enlace y campo de cupon */
 #tix #tix-coupon-link { font-family: "IBM Plex Mono","Fira Code",monospace; font-size: 13px; color: #002b7f; }
