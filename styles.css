@@ -1980,6 +1980,264 @@ footer {
   #tix .tix-ticket-title { font-size: 16px; }
 }
 
+/* ============================================================
+   WordCamp Costa Rica 2026 — PONENTES v2 (con charla + fecha)
+   SOLO CSS. El HTML del query loop NO se toca a mano.
+
+   Ya quitaste "Ver más" y "Sala" y los cambiaste por el bloque
+   nativo "Sesiones del ponente" (charla + fecha). Estructura
+   real confirmada en vivo:
+
+     figure.wp-block-wordcamp-avatar > img
+     h3.wp-block-post-title > a                          (nombre)
+     ul.wp-block-wordcamp-speaker-sessions > li > p > a   (charla)
+     div.wp-block-wordcamp-session-date > time            (fecha)
+
+   Cada selector abajo viene DUPLICADO: una vez con clase nativa
+   de WordPress (funciona ya, sin que toques nada) y una vez con
+   clase .wccr-ponente-* (para que quede con tu convención). Para
+   activar la segunda, agrega "Clase(s) CSS adicional" en el
+   panel Avanzado de CADA bloque DENTRO del template del query
+   loop (Ponentes → editar bloque → Avatar / Título / Sesiones /
+   Fecha). Es un clic único por bloque, se aplica a los 20
+   ponentes automáticamente — no es por-ponente.
+
+     Bloque "Avatar"            → wccr-ponente-avatar
+     Bloque "Título"            → wccr-ponente-nombre
+     Bloque "Sesiones ponente"  → wccr-ponente-charla
+     Bloque "Fecha de sesión"   → wccr-ponente-fecha
+
+   El <li> de la tarjeta en sí NO se puede clasear a mano —
+   Gutenberg no da esa opción en un query loop, solo a los
+   bloques internos. Por eso ahí sí nos quedamos con el selector
+   nativo .wcb_speaker (es estable, no depende de que edites nada).
+
+   ⚠️ BUG DE DATOS detectado, no de CSS: las 20 sesiones están
+   devolviendo datetime="1969-12-31T18:00:00-06:00" — es el typical
+   fallback de una fecha vacía en la agenda. Mientras no le asignes
+   fecha/hora real a cada charla en el editor de Agenda, la regla
+   de abajo OCULTA la fila de fecha automáticamente (mejor eso que
+   mostrar "31 de diciembre de 1969" en producción). En cuanto
+   asignes fechas reales, la fila aparece sola, sin tocar CSS.
+   ============================================================ */
+
+/* --- Encabezado de la página (H1 + intro + separador) --- */
+.page-slug-ponentes h1.wp-block-post-title {
+    color: #3759b3 !important;
+    font-weight: 800 !important;
+}
+
+.page-slug-ponentes .entry-content p.wp-block-paragraph {
+    color: #5a6a85 !important;
+    max-width: 640px;
+}
+
+.page-slug-ponentes .entry-content hr.wp-block-separator {
+    width: 64px !important;
+    height: 4px !important;
+    background-color: #ce1126 !important;
+    border: none !important;
+    opacity: 1 !important;
+    margin: 20px 0 40px !important;
+}
+
+/* --- Grid de tarjetas --- */
+.page-slug-ponentes .wp-block-post-template.columns-3 {
+    gap: 2.5rem 1.75rem !important;
+}
+
+/* --- Tarjeta (el <li> — selector nativo, ver nota arriba) --- */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker {
+    position: relative;
+    width: 100%;
+    max-width: 368px;
+    aspect-ratio: auto;
+    margin: 0 auto;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #e1e8f2;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0, 43, 127, 0.08);
+    padding: 40px 26px 26px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 34px rgba(0, 43, 127, 0.16);
+}
+
+/* Barra superior — color por defecto (fallback si no hay sala) */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ce1126, #3759b3, #64c4f4);
+}
+
+/* --- Avatar --- */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-avatar,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar {
+    order: 1;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 18px !important;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-avatar img,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ce1126;
+    object-fit: cover;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+/* Punto indicador de sala/track, esquina del avatar (fallback) */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-avatar::after,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ce1126;
+    border: 3px solid #ffffff;
+}
+
+/* --- Nombre --- */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-nombre,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-post-title {
+    order: 2;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #3759b3 !important;
+    margin: 0 0 8px !important;
+    line-height: 1.25 !important;
+}
+
+/* --- Charla (antes "Sala", ahora la sesión real del ponente) --- */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-charla,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-speaker-sessions {
+    order: 3;
+    list-style: none !important;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+    flex-grow: 1;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-speaker-sessions li {
+    margin: 0;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-speaker-sessions p {
+    margin: 0;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-speaker-sessions a {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #3a4a63;
+    text-decoration: none;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-speaker-sessions a:hover {
+    color: #3759b3;
+    text-decoration: underline;
+}
+
+/* --- Fecha de la sesión (pill + icono, estilo "footer" de la tarjeta) --- */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wccr-ponente-fecha,
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-session-date {
+    order: 4;
+    margin-top: auto !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #eef1f6;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-session-date time {
+    background-color: #d3f0ff;
+    color: #053d78;
+    font-weight: 700;
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-session-date::after {
+    content: "\1F310"; /* 🌐 */
+    font-size: 0.85rem;
+    opacity: 0.55;
+    line-height: 1;
+}
+
+/* Mientras la fecha no esté configurada (bug de datos, ver nota
+   arriba), no mostramos la fila entera — nada de "1969" en vivo. */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-session-date:has(time[datetime^="1969-12-31"]) {
+    display: none;
+}
+
+/* ============================================================
+   Sistema de color por sala/track — Auditorio, Taller 1-4.
+   Aprovecha las clases que WordCamp ya agrega solo al <li>
+   (wcb_speaker_group-*). Cero HTML nuevo, cero JS.
+   ============================================================ */
+
+/* Auditorio — azul marca */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-auditorio::before { background: linear-gradient(90deg, #3759b3, #64c4f4); }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-auditorio .wp-block-wordcamp-avatar img { border-color: #3759b3; }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-auditorio .wp-block-wordcamp-avatar::after { background-color: #3759b3; }
+
+/* Taller 1 — rojo marca */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller::before { background: linear-gradient(90deg, #ce1126, #8c1015); }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller .wp-block-wordcamp-avatar img { border-color: #ce1126; }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller .wp-block-wordcamp-avatar::after { background-color: #ce1126; }
+
+/* Taller 2 — celeste */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-2::before { background: linear-gradient(90deg, #64c4f4, #053d78); }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-2 .wp-block-wordcamp-avatar img { border-color: #64c4f4; }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-2 .wp-block-wordcamp-avatar::after { background-color: #64c4f4; }
+
+/* Taller 3 — púrpura (mismo tono que Pyme Guaria en patrocinadores) */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-3::before { background: linear-gradient(90deg, #7339c5, #3759b3); }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-3 .wp-block-wordcamp-avatar img { border-color: #7339c5; }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-3 .wp-block-wordcamp-avatar::after { background-color: #7339c5; }
+
+/* Taller 4 — verde (mismo tono que Crestones in-kind) */
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-4::before { background: linear-gradient(90deg, #05bf62, #053d78); }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-4 .wp-block-wordcamp-avatar img { border-color: #05bf62; }
+.page-slug-ponentes .wp-block-post-template > li.wcb_speaker.wcb_speaker_group-taller-4 .wp-block-wordcamp-avatar::after { background-color: #05bf62; }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .page-slug-ponentes .wp-block-post-template.columns-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 560px) {
+    .page-slug-ponentes .wp-block-post-template.columns-3 {
+        grid-template-columns: 1fr !important;
+    }
+    .page-slug-ponentes .wp-block-post-template > li.wcb_speaker {
+        max-width: 100%;
+    }
+}
+
  
 /* ============================================================
    WordCamp Costa Rica 2026 — CPT wcb_sponsor (single) 
@@ -2110,66 +2368,6 @@ footer {
 	background-color: #053D78;
 	color: #000000;
 }
-
-/* ============================================================
-   WordCamp Costa Rica 2026 —    Ponentes
-============================================================ */
-/* Separación del grid de tarjetas (3 columnas ya existen en tu HTML) */
-.page-slug-ponentes .wp-block-post-template.columns-3 {
-	gap: 2.5rem 1.5rem;
-/* aproximado, ajusta a tu gusto visualmente */
-}
-
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker {
-	position: relative;
-	width: 100%;
-	max-width: 368px;
-	aspect-ratio: 368 / 475;
-	margin: 0 auto;
-	background-image: url('https://costarica.wordcamp.org/2026/files/2026/07/PonCard.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-	padding: 56px 24px 24px;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-}
-
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar {
-	margin: 0 auto 16px;
-}
-
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-wordcamp-avatar img {
-	border-radius: 50%;
-	border: 3px #AE0013 solid;
-	object-fit: cover;
-}
-
-/* Nombre del ponente */
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-post-title {
-	font-size: 1.4rem;
-	font-weight: 800;
-	color: #3B4CCB;
-	margin: 4px 0;
-	line-height: 1.2;
-}
-
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-post-title a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.page-slug-ponentes .wp-block-post-template > li.wcb_speaker .wp-block-read-more {
-	display: block;
-	margin-top: auto;
-	padding-top: 8px;
-	font-size: .85rem;
-	color: #6b6b6b;
-}
-
 
 
 /* ============================================================
