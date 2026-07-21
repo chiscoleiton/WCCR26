@@ -1734,7 +1734,7 @@ footer {
 /* --- Título de la sesión --- */
 .wccr-agenda-page .wordcamp-schedule__session-title {
     margin: 0 0 8px;
-    font-size: 16.5px;
+    font-size: 16.5px !important;
     line-height: 1.35;
     font-weight: 800;
     color: #0b1b33;
@@ -1778,6 +1778,7 @@ footer {
 }
 .wccr-agenda-page .wordcamp-schedule__session > p::before {
     content: "🕐 ";
+    margin-right: 6px;
 }
 
 /* --- Ponente(s): fila con "avatar" circular generado por CSS
@@ -1870,12 +1871,15 @@ footer {
 /* Ícono por tipo de break, según el slug real de la sesión */
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom[class*="has-slug-cafe"] .wordcamp-schedule__session-title::before {
     content: "☕ ";
+    margin-right: 6px;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom[class*="has-slug-almuerzo"] .wordcamp-schedule__session-title::before {
     content: "🍽️ ";
+    margin-right: 6px;
 }
 .wccr-agenda-page .wordcamp-schedule__session.is-type-custom[class*="has-slug-foto-grupal"] .wordcamp-schedule__session-title::before {
     content: "📸 ";
+    margin-right: 6px;
 }
 
 /* ------------------------------------------------------------
