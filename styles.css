@@ -1960,7 +1960,7 @@ footer {
 #tix input[type="submit"] {
   font-family: Poppins; font-weight: 700; font-size: 17px;
   background: #ffffff; color: #002b7f;
-  border: 2px solid #002b7f; border-radius: 14px;
+  border: 2px solid #002b7f; border-radius: 999px;
   box-shadow: 5px 5px 0 #002b7f;
   padding: 14px 30px; margin-top: 20px; cursor: pointer;
   transition: transform .18s ease, box-shadow .18s ease;
