@@ -1922,9 +1922,9 @@ footer {
 #tix table.tix_tickets_table {
   width: 100%;
   background: #fff;
-  border: 2px solid #14231A;
+  border: 2px solid #var(--wp--preset--color--accent);
   border-radius: 22px;
-  box-shadow: 5px 5px 0 #14231A;
+  box-shadow: 5px 5px 0 #var(--wp--preset--color--accent);
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
@@ -1938,13 +1938,13 @@ footer {
   text-transform: uppercase; letter-spacing: .08em;
   color: #0E3A22;
   background: #DEEFE0;
-  border-bottom: 2px solid #14231A;
+  border-bottom: 2px solid #var(--wp--preset--color--accent);
 }
 
 /* filas de boletos */
 #tix tbody tr + tr th,
 #tix tbody tr + tr td { border-top: 1.5px dashed #d8cfbc; }
-#tix .tix-ticket-title { font-family: "Bricolage Grotesque","Rubik",system-ui,sans-serif; font-weight: 800; font-size: 19px; color: #14231A; }
+#tix .tix-ticket-title { font-family: "Bricolage Grotesque","Rubik",system-ui,sans-serif; font-weight: 800; font-size: 19px; color: #var(--wp--preset--color--accent); }
 #tix .tix-ticket-excerpt { color: #4C5C50; font-size: 14px; line-height: 1.5; }
 #tix .tix-column-price { font-family: "Bricolage Grotesque","Rubik",system-ui,sans-serif; font-weight: 800; font-size: 18px; color: #159A3A; white-space: nowrap; }
 #tix .tix-column-remaining { font-family: "IBM Plex Mono","Fira Code",monospace; color: #D95B2B; font-weight: 600; }
@@ -1952,24 +1952,24 @@ footer {
 /* selector de cantidad */
 #tix select {
   font-family: "IBM Plex Mono","Fira Code",monospace; font-size: 15px;
-  border: 2px solid #14231A; border-radius: 10px;
+  border: 2px solid #var(--wp--preset--color--accent); border-radius: 10px;
   padding: 8px 12px; background: #fff; cursor: pointer;
 }
 
 /* boton de registro */
 #tix input[type="submit"] {
   font-family: "Bricolage Grotesque","Rubik",system-ui,sans-serif; font-weight: 700; font-size: 17px;
-  background: #2FBF5C; color: #14231A;
-  border: 2px solid #14231A; border-radius: 14px;
-  box-shadow: 5px 5px 0 #14231A;
+  background: #2FBF5C; color: #var(--wp--preset--color--accent);
+  border: 2px solid #var(--wp--preset--color--accent); border-radius: 14px;
+  box-shadow: 5px 5px 0 #var(--wp--preset--color--accent);
   padding: 14px 30px; margin-top: 20px; cursor: pointer;
   transition: transform .18s ease, box-shadow .18s ease;
 }
-#tix input[type="submit"]:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #14231A; }
+#tix input[type="submit"]:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #var(--wp--preset--color--accent); }
 
 /* enlace y campo de cupon */
 #tix #tix-coupon-link { font-family: "IBM Plex Mono","Fira Code",monospace; font-size: 13px; color: #159A3A; }
-#tix #tix-coupon-input { border: 2px solid #14231A; border-radius: 10px; padding: 8px 12px; }
+#tix #tix-coupon-input { border: 2px solid #var(--wp--preset--color--accent); border-radius: 10px; padding: 8px 12px; }
 
 @media (max-width: 640px) {
   #tix th, #tix td { padding: 12px 10px; }
